@@ -20,6 +20,12 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.editable {
+    min-height: 150px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
 footer {
     background-color: #333;
     color: white;

@@ -10,10 +10,10 @@ function addSectionListeners() {
     const sections = document.querySelectorAll('section');
 
     sections.forEach(section => {
-        const textarea = section.querySelector('textarea');
+        const editableDiv = section.querySelector('.editable');
         
-        textarea.addEventListener('blur', function() {
-            saveNotes(section.id, textarea.value);
+        editableDiv.addEventListener('blur', function() {
+            saveNotes(section.id, editableDiv.innerHTML);
         });
     });
 }
@@ -28,11 +28,11 @@ function loadNotes() {
     const sections = document.querySelectorAll('section');
 
     sections.forEach(section => {
-        const textarea = section.querySelector('textarea');
+        const editableDiv = section.querySelector('.editable');
         const savedNotes = localStorage.getItem(section.id);
 
         if (savedNotes) {
-            textarea.value = savedNotes;
+            editableDiv.innerHTML = savedNotes;
         }
     });
 }
