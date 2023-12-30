@@ -26,6 +26,11 @@ section {
     padding: 10px;
 }
 
+input[type="number"] {
+    width: 100px;
+    padding: 5px;
+}
+
 footer {
     background-color: #333;
     color: white;

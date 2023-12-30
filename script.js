@@ -5,9 +5,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adiciona listeners para salvar anotações ao sair de uma seção
     addSectionListeners();
 
-    // Calcula a média e define a cor do texto com base na média
-    calculateAndSetAverage();
+    // Adiciona listener para a avaliação de 0 a 10
+    const avaliacaoInput = document.getElementById('avaliacao-input');
+    avaliacaoInput.addEventListener('blur', function() {
+        saveNotes('avaliacao', avaliacaoInput.value);
+        calculateAndSetAverage();
+    });
 });
+
+function addSectionListeners() {
+    const sections = document.querySelectorAll('section');
+
+    sections.forEach(section => {
+        const editableDiv = section.querySelector('.editable');
+        
+        editableDiv.addEventListener('blur', function() {
+            saveNotes(section.id, editableDiv.innerHTML);
+            calculateAndSetAverage();
+        });
+    });
+}
 
 function calculateAndSetAverage() {
     // Pega todas as seções de notas
@@ -34,6 +51,15 @@ function calculateAndSetAverage() {
         }
     });
 
+    // Pega a avaliação de 0 a 10
+    const avaliacao = parseFloat(localStorage.getItem('avaliacao')) || 0;
+
+    // Se a avaliação de 0 a 10 for válida, a inclui no cálculo da média
+    if (!isNaN(avaliacao)) {
+        total += avaliacao;
+        count++;
+    }
+
     // Calcula a média
     const average = count === 0 ? 0 : total / count;
 
@@ -48,4 +74,9 @@ function calculateAndSetAverage() {
 
     // Define a cor do texto com base na média
     colorDisplay.style.color = average >= 5 ? 'green' : 'red';
+}
+
+function saveNotes(sectionId, notes) {
+    // Salva as anotações no Local Storage
+    localStorage.setItem(sectionId, notes);
 }
