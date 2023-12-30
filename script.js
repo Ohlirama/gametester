@@ -33,11 +33,10 @@ function addSectionListeners() {
 function calculateAndSetAverage() {
     // ... (mesmo código)
 
-    // Define a cor do texto com base na média
+    // Atualiza a cor do texto e a cor de fundo do botão de Avaliação Final
     const colorDisplay = document.getElementById('color-display');
     colorDisplay.style.color = getTextColor(average);
 
-    // Atualiza o texto do botão de Avaliação Final
     const finalButton = document.getElementById('final-button');
     finalButton.style.backgroundColor = getBackgroundColor(average);
 }
