@@ -80,3 +80,21 @@ function saveNotes(sectionId, notes) {
     // Salva as anotações no Local Storage
     localStorage.setItem(sectionId, notes);
 }
+
+function avaliacaoFinal() {
+    const avaliacao = parseFloat(localStorage.getItem('avaliacao')) || 0;
+    const mensagemFinalElement = document.getElementById('mensagem-final');
+
+    // Remove o botão e exibe a mensagem final
+    const finalButton = document.querySelector('button');
+    finalButton.remove();
+
+    // Adiciona a mensagem final com base na avaliação
+    if (avaliacao > 5) {
+        mensagemFinalElement.innerHTML = '<p>Jogo bom! 👍</p>';
+    } else if (avaliacao < 5) {
+        mensagemFinalElement.innerHTML = '<p>Jogo ruim! 👎</p>';
+    } else {
+        mensagemFinalElement.innerHTML = '<p>Jogo mais ou menos! 🤏</p>';
+    }
+}

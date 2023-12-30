@@ -15,7 +15,7 @@
         <h2>Minha Experiência</h2>
         <div contenteditable="true" class="editable" id="minha-experiencia-input"></div>
     </section>
-
+    
     <section id="coisas-gostei">
         <h2>Coisas que Gostei</h2>
         <div contenteditable="true" class="editable" id="coisas-gostei-input"></div>
@@ -27,12 +27,12 @@
     </section>
 
     <section id="vantagem-jogar">
-        <h2>Vantagem em jogar</h2>
+        <h2>Vantagem de jogar</h2>
         <div contenteditable="true" class="editable" id="vantagem-input"></div>
     </section>
 
     <section id="desvantagem-jogar">
-        <h2>Desvantagem em jogar</h2>
+        <h2>Desvantagem de jogar</h2>
         <div contenteditable="true" class="editable" id="desvantagem-input"></div>
     </section>
 
@@ -45,11 +45,14 @@
         <h2>Nota Final</h2>
         <div contenteditable="true" class="editable" id="nota-final-input"></div>
     </section>
-    <!-- Adicione mais seções conforme necessário -->
 
     <section>
         <h2>Avaliação de 0 a 10</h2>
-        <input type="number" id="avaliacao-input" min="0" max="10" placeholder="Insira sua avaliação">
+        <div>
+            <input type="number" id="avaliacao-input" min="0" max="10" placeholder="Insira sua avaliação">
+            <button onclick="avaliacaoFinal()">Avaliação Final</button>
+        </div>
+        <div id="mensagem-final"></div>
     </section>
 
     <div id="average-display"></div>
